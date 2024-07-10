@@ -1,13 +1,13 @@
 use std::error::Error;
 
+use grpc_gemini_demo::google::cloud::aiplatform::v1::{
+    part::Data, prediction_service_client::PredictionServiceClient, Content,
+    GenerateContentRequest, Part,
+};
 use tonic::{
     metadata::MetadataValue,
     transport::{Certificate, Channel, ClientTlsConfig},
     Request,
-};
-use tonic_test::google::cloud::aiplatform::v1::{
-    part::Data, prediction_service_client::PredictionServiceClient, Content,
-    GenerateContentRequest, Part,
 };
 
 const AUTH_SCOPE: &[&str] = &["https://www.googleapis.com/auth/cloud-platform"];

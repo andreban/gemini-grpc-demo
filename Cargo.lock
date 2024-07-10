@@ -354,6 +354,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "40ecd4077b5ae9fd2e9e169b102c6c330d0605168eb0e8bf79952b256dbefffd"
 
 [[package]]
+name = "grpc-gemini-demo"
+version = "0.1.0"
+dependencies = [
+ "gcp_auth",
+ "prost",
+ "prost-types",
+ "tokio",
+ "tonic",
+ "tonic-build",
+ "tonic-types",
+]
+
+[[package]]
 name = "h2"
 version = "0.4.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1332,19 +1345,6 @@ dependencies = [
  "prost-build",
  "quote",
  "syn",
-]
-
-[[package]]
-name = "tonic-test"
-version = "0.1.0"
-dependencies = [
- "gcp_auth",
- "prost",
- "prost-types",
- "tokio",
- "tonic",
- "tonic-build",
- "tonic-types",
 ]
 
 [[package]]
