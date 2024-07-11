@@ -6,7 +6,7 @@ This sample project uses [tonic][1] to generate a client and structs for the
 ## Running the project
 
  - Clone the project with `git clone --recurse-submodules`
- - Make sure the [protobuf compiler][1] is installed on your system and available to rustc in your path.
+ - Make sure the [protobuf compiler][2] is installed on your system and available to rustc in your path.
  - Execute `cargo run`.
 
  [1]: https://crates.io/crates/tonic
