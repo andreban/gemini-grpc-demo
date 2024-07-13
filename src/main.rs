@@ -6,12 +6,11 @@ use grpc_gemini_demo::google::cloud::aiplatform::v1::{
 };
 use tonic::{
     metadata::MetadataValue,
-    transport::{Certificate, Channel, ClientTlsConfig},
+    transport::{Channel, ClientTlsConfig},
     Request,
 };
 
 const AUTH_SCOPE: &[&str] = &["https://www.googleapis.com/auth/cloud-platform"];
-const CERTS: &str = include_str!("../roots.pem");
 const MODEL: &str = "gemini-1.0-pro-002";
 
 #[tokio::main]
@@ -28,9 +27,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
     let domain_name = format!("{location_id}-aiplatform.googleapis.com");
     let http_endpoint = format!("https://{domain_name}");
 
-    let tls_config = ClientTlsConfig::new()
-        .ca_certificate(Certificate::from_pem(CERTS))
-        .domain_name(domain_name);
+    let tls_config = ClientTlsConfig::new().with_native_roots();
 
     let channel = Channel::from_shared(http_endpoint)?
         .tls_config(tls_config)?
